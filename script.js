@@ -176,12 +176,14 @@ function attack() {
     monsterHealthText.innerText = monsterHealth;
     if (health <= 0) {
         lose();
+    } else if (monsterHealth <= 0) {
+        defeatMonster();
     }
 }
 
 
 function dodge() {
-
+    text.innerText = "You dodge the attack from the " + monsters[fighting].name + ".";
 }
 
 function sellWeapon() {
@@ -194,4 +196,12 @@ function sellWeapon() {
     } else {
         text.innerText = "Don't sell your only weapon!"
     }
+}
+
+function defeatMonster(){
+    gold += Math.floor(monsters[fighting].level * 6.7);
+}
+
+function lose(){
+  
 }
